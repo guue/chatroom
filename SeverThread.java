@@ -1,6 +1,5 @@
 package chatRoom;
 
-import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import static chatRoom.Msg2Panel.*;
@@ -43,7 +42,7 @@ public class SeverThread extends Thread {
                             case "user": {
                                 server.user_socket.put(clientSocket, msg);
                                 handleNewUser(msg);
-//                            System.out.println(server.user_socket);
+
                                 break;
                             }
                             case "msg": {
@@ -84,7 +83,7 @@ public class SeverThread extends Thread {
 
 
                 } catch (IOException e) {
-//                    System.out.println("error:"+e);
+                    System.out.println("error:"+e);
                     String name = server.user_socket.get(clientSocket);
                     if (name != null) {
                         server.removeUserFromList(name);

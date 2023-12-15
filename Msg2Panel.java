@@ -26,7 +26,7 @@ public class Msg2Panel {
         SimpleAttributeSet content_attr = new SimpleAttributeSet();
         StyleConstants.setBold(content_attr, false);
         StyleConstants.setForeground(content_attr, content_color);
-        Style style = null;
+
 
         try {
             document.insertString(document.getLength(), title + "\n", title_attr);
@@ -37,6 +37,6 @@ public class Msg2Panel {
         }
         /*设置滑动条到最后*/
         textPane.setCaretPosition(textPane.getDocument().getLength());
-//        vertical.setValue(vertical.getMaximum());
+
     }
 }

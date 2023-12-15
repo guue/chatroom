@@ -9,12 +9,12 @@ import java.util.Objects;
 
 
 import static chatRoom.IP.*;
-import static chatRoom.Msg2Panel.insertMessage;
 
 public class ClientButtonEventListener implements ActionListener {
     public Client client;
     public DataOutputStream dos;
     public Socket charClient;
+
     public ClientButtonEventListener(Client client) {
         this.client = client;
     }
@@ -53,15 +53,7 @@ public class ClientButtonEventListener implements ActionListener {
 
     }
 
-/*    private void handleClientExitClick() {
-        int confirm = JOptionPane.showConfirmDialog(client.frame,
-                "确定要退出吗?", "退出确认",
-                JOptionPane.YES_NO_OPTION);
-        if (confirm == JOptionPane.YES_OPTION) {
-            client.frame.dispose();
-            System.exit(0);
-        }
-    }*/
+
     private void handleClientExitClick() throws IOException {
         if(Objects.equals(client.head_connect.getText(), "已连接")){
             charClient.close();
@@ -157,19 +149,17 @@ public class ClientButtonEventListener implements ActionListener {
                             byte[] buffer = new byte[4096];
                             int bytesRead;
                             long totalBytesRead = 0;
-                            long fileSize = selectedFile.length();
+
 
                             while ((bytesRead = fis.read(buffer)) != -1) {
                                 bos.write(buffer, 0, bytesRead);
                                 totalBytesRead += bytesRead;
-/*                                int progress = (int) ((totalBytesRead * 100) / fileSize);
-                                SwingUtilities.invokeLater(() -> client.updateProgressBar(progress));*/
+
                             }
                         } catch (IOException e) {
                             System.out.println("error:" + e);
-                            ;
-                        }
 
+                        }
                     }).start();
                     System.out.println("选择的文件路径是：" + ((File) selectedFile).getAbsolutePath());
                 }

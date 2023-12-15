@@ -5,11 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-/**
- 1. @Author: Himit_ZH
- 2. @Date: 2020/6/4 14:55
- 3. @Description: 聊天室客户端GUI
- */
+
 public class Client {
 
     public JFrame frame;
@@ -93,10 +89,7 @@ public class Client {
         rightpanel.setPreferredSize(new Dimension(155, 0));
         bottompanel.setPreferredSize(new Dimension(0, 40));
 
-        //进度条布局
-/*        progressBar = new JProgressBar(0, 100);
-        progressBar.setValue(0);
-        progressBar.setStringPainted(true);*/
+
 
 
         //头部布局
@@ -132,8 +125,7 @@ public class Client {
         foot_userClear = new JButton("清空聊天消息");
         foot_userClear.setPreferredSize(new Dimension(128, 0));
         text_field = new JTextField();
-//        receiverTextField = new JTextField();
-//        receiverTextField.setPreferredSize(new Dimension(80, 25));
+
         String name = JOptionPane.showInputDialog("请输入聊天所用昵称：");
         if (name != null && !name.isEmpty()) {
             name_textfield.setText(name);

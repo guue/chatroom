@@ -9,7 +9,7 @@ import static chatRoom.Msg2Panel.insertMessage;
 public class ClinentReader extends Thread {
     private Socket socket;
     public Client client;
-    public DataOutputStream filewriter;
+
     public ClinentReader(Client client,Socket socket) {
         this.socket=socket;
         this.client = client;
@@ -20,9 +20,7 @@ public class ClinentReader extends Thread {
         try {
             InputStream is = socket.getInputStream();
             DataInputStream dis = new DataInputStream(is);
-            int length = -1;
-            byte[] buffer = new byte[4096];
-            long totalBytesRead = 0;
+
             while (true) {
                 try {
 
@@ -30,8 +28,7 @@ public class ClinentReader extends Thread {
                     System.out.println(Msg);
                     int index1 = Msg.indexOf(",");
                     int index2 = Msg.indexOf("/");
-//                    System.out.println(index1);
-//                    System.out.println("index2 = " + index2);
+
                     if(index1!=-1 && index2!=-1) {
                         String cmd = Msg.substring(0, index1);
                         String name = Msg.substring(index1 + 1, index2);
@@ -58,8 +55,7 @@ public class ClinentReader extends Thread {
                             case "File": {
                                 String fileName = dis.readUTF();
                                 long fileSize = dis.readLong();
-//                                System.out.println(fileName);
-//                                System.out.println(fileSize);
+
                                 JFileChooser fileChooser = new JFileChooser();
                                 fileChooser.setDialogTitle("保存文件");
                                 fileChooser.setSelectedFile(new File(fileName));

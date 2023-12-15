@@ -6,10 +6,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 import static chatRoom.IP.*;
 import static chatRoom.Msg2Panel.insertMessage;
 
@@ -68,26 +64,7 @@ public class SeverButtonEventListener implements ActionListener {
     }
 
 
-/*    private void handleKickButtonClick() throws IOException {
-        String name = server.userlist.getSelectedValue();
-        severThread.handleSysMsg(name + "被踢出了群聊");
-        Socket key = null;
-        Set<Map.Entry<Socket, String>> set = server.user_socket.entrySet();// entrySet()方法就是把map中的每个键值对变成对应成Set集合中的一个对象.
-        // set对象中的内容如下:[3=c, 2=b, 1=a, 5=e, 4=c]
-        Iterator it = set.iterator();
-        while (it.hasNext()) {
-            Map.Entry<Socket, String> entry = (Map.Entry<Socket, String>) it.next();
-            // entry中的内容就是set集合中的每个对象(map集合中的一个键值对)3=c....
-            // Map.Entry就是一种类型,专值map中的一个键值对组成的对象.
-            if (entry.getValue().equals(name)) {
-                key = entry.getKey();
 
-            }
-
-        }
-//        System.out.println(key);
-        key.close();
-    }*/
     private void handleKickButtonClick() throws IOException {
         String name = server.userlist.getSelectedValue(); // 获取选中的用户名
         if(name!=null) {
